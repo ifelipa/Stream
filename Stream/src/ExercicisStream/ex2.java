@@ -1,4 +1,4 @@
-package Exercicis;
+package ExercicisStream;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package Exercicis;
+package ExercicisStream;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +17,7 @@ public class ex1 {
 		ArrayList<File> fileIn = new ArrayList<File>();
 		
 		for (int i = 0; i < nfile; i++) {
-			System.out.println("Introduce nombre del fichero nº :"+ (i+1));
+			System.out.println("Introduce nombre del fichero nï¿½ :"+ (i+1));
 			//Creamos el fichero para comprobar si existe
 			sc= new Scanner(System.in);
 			File file = new File(sc.next());

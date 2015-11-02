@@ -1,4 +1,4 @@
-package Ejemplos;
+package EjemplosStream;
 import java.io.File;
 
 public class ExempleFile {
