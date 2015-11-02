@@ -2,6 +2,7 @@ package ExercicisStream;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,7 +18,7 @@ public class ex1 {
 		ArrayList<File> fileIn = new ArrayList<File>();
 		
 		for (int i = 0; i < nfile; i++) {
-			System.out.println("Introduce nombre del fichero n� :"+ (i+1));
+			System.out.println("Introduce nombre del fichero nº :"+ (i+1));
 			//Creamos el fichero para comprobar si existe
 			sc= new Scanner(System.in);
 			File file = new File(sc.next());
@@ -58,7 +59,7 @@ public class ex1 {
 				out.write(line);
 			}
 			
-		} catch (IOException e) {
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
