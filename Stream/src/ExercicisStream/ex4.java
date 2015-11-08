@@ -13,8 +13,8 @@ import java.util.Collections;
 public class ex4 {
 
 	public static void main(String[] args) {
-		// String path="C:/Users/isma/git/Stream/Stream";
-		String path = "/home/users/inf/wiaw2/iaw188216/git/Stream/Stream/";
+		 String path="C:/Users/isma/git/Stream/Stream";
+		//String path = "/home/users/inf/wiaw2/iaw188216/git/Stream/Stream/";
 
 		File pathDirectory = new File(path);
 		File[] listFileDirectory = null;
@@ -74,7 +74,7 @@ public class ex4 {
 		for (File file : listaFicheros) {
 			String aux = file.getName();
 			if (file.isDirectory() && aux.matches("^backUp[0-9]")) {
-				System.out.println(file.getName());
+				
 				int n = Integer.parseInt(aux.substring(aux.length() - 1, aux.length()));
 				if (n > numberBackUp) {
 					numberBackUp = n;
