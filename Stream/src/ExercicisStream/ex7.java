@@ -14,12 +14,14 @@ public class ex7 {
 
 	public static void main(String[] args) {
 		/* Crear un programa que llegeixi un fitxer de text,
-		 * per a cada caràcter guardarem les seves repeticions i 
+		 * per a cada carï¿½cter guardarem les seves repeticions i 
 		 * guardarem un fitxer de sortida que contingui. Caracter, 
 		 * repeticions, percentatge.
 		 */
 		
-		String path = "C:/Users/isma/git/Stream/Stream/nuevo";
+		//String path = "C:/Users/isma/git/Stream/Stream/nuevo";
+		String path = "/home/users/inf/wiaw2/iaw188216/git/Stream/Stream/nuevo";
+
 		File f = new File(path);
 		File fileOut = new File("porcentaje.txt");
 		
@@ -36,6 +38,7 @@ public class ex7 {
 	private static void fileProcessing(File f, File fileOut) throws IOException {
 		FileReader in = null;
 		FileWriter out = null;
+		
 		ArrayList<Character> caracteres = new ArrayList<Character>();
 		
 		
@@ -47,7 +50,6 @@ public class ex7 {
 				caracteres.add((char)x);
 			}
 			ArrayList result = new ArrayList();
-			TreeMap<Charset, Char> counter = new TreeMap<char, char>;
 			
 			for (Character c : caracteres) {
 				if (!result.contains(c)){

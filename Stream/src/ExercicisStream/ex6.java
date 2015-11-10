@@ -14,7 +14,9 @@ public class ex6 {
 	public static void main(String[] args) {
 
 
-		String path = "C:/Users/isma/git/Stream/Stream/nuevo";
+		//String path = "C:/Users/isma/git/Stream/Stream/nuevo";
+		String path = "/home/users/inf/wiaw2/iaw188216/git/Stream/Stream/nuevo";
+
 		File f = new File(path);
 		File ficherOrdenado = new File("ficheroABC.txt");
 		File ficheroRepetido = new File("ficheroREP.txt");

@@ -2,19 +2,16 @@ package ExercicisStream;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class ex4 {
 
 	public static void main(String[] args) {
-		 String path="C:/Users/isma/git/Stream/Stream";
-		//String path = "/home/users/inf/wiaw2/iaw188216/git/Stream/Stream/";
+		 //String path="C:/Users/isma/git/Stream/Stream";
+		String path = "/home/users/inf/wiaw2/iaw188216/git/Stream/Stream/";
 
 		File pathDirectory = new File(path);
 		File[] listFileDirectory = null;
@@ -32,6 +29,7 @@ public class ex4 {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("Fin");
 	}
 
 	private static void createBackUp(File[] listFileDirectory, String directoryNameNewPath) throws IOException {
@@ -73,8 +71,7 @@ public class ex4 {
 		int numberBackUp = -1;
 		for (File file : listaFicheros) {
 			String aux = file.getName();
-			if (file.isDirectory() && aux.matches("^backUp[0-9]")) {
-				
+			if (file.isDirectory() && aux.matches("^backUp[0-9]")) {				
 				int n = Integer.parseInt(aux.substring(aux.length() - 1, aux.length()));
 				if (n > numberBackUp) {
 					numberBackUp = n;
