@@ -41,8 +41,21 @@ public class Main {
 	         System.out.println("Found value: " + m1.group(1));
 	         System.out.println("Found value: " + m1.group(2));
 	         System.out.println("Found value: " + m1.group(3));
-	         System.out.println("Found value: " + m1.group(4));
 	      }
+	      
+	      Pattern pt = Pattern.compile("un");
+	      Matcher mt = pt.matcher("Aixo es un text de un exemple");
+	      
+	      boolean found = false;
+	      
+	      while (mt.find()){
+	    	  System.out.println("I found the text <<" + mt.group() + ">> starting at "+ "index "+ mt.start() + " and ending at index " + mt.end());
+	    	  found =true;
+	      }
+	      if (!found){
+	    	  System.out.println("no match found.");
+	      }
+	      
 
 	}
 
