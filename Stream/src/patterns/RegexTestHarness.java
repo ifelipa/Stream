@@ -56,6 +56,14 @@ public class RegexTestHarness {
      * 
      *\d busca solo digitos
      *
+     *a+
+     *aaaaaaaa
+     *solo encontrará las a sin el espàcio en blanco
+     *a{3,} coge de tres a mas letras a 
      *
+     * .*bat todos los caracter hasta bat (hola soc en batman)
+     * 
+     * .*?bat 
+     * 
      */
 }
