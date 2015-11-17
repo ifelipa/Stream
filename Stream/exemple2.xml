@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Treballador id="133">
+    <nom>Karla</nom>
+    <carrec>Big Boss</carrec>
+    <edat>52</edat>
+    <genere>dona</genere>
+</Treballador>
+
+<Treballador id="134">
+    <nom>Chema</nom>
+    <carrec>Team leader</carrec>
+    <edat>32</edat>
+    <genere>dona</genere>
+</Treballador>

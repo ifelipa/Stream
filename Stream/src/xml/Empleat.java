@@ -1,8 +1,10 @@
 package xml;
 import javax.xml.bind.annotation.*;
 
+//Con esto decimo que la clase no solo será un objeto xml sino parte de muchos objetos xml
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement (name = "Treballador") // punto de la raiz
-@XmlType (propOrder = {"nom", "carrec", "edat", "sexe"}) //orden en el que se generara el xml
+@XmlType (propOrder = {"id","nom", "carrec", "edat", "sexe"}) //orden en el que se generara el xml
 /*
  * <treballador>
  * 	<nom> --- </nom>
@@ -35,7 +37,7 @@ public class Empleat {
 		super();
 	}
 
-	@XmlAttribute
+	//@XmlAttribute
 	public int getId() {
 		return id;
 	}	
@@ -43,7 +45,7 @@ public class Empleat {
 	public void setId(int id) {
 		this.id = id;
 	}
-	@XmlElement(name="genere")
+	//@XmlElement(name="genere")
 	public String getSexe() {
 		return sexe;
 	}

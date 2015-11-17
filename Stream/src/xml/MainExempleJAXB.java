@@ -1,13 +1,18 @@
 package xml;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.xml.bind.*;
 
 public class MainExempleJAXB {
 
-	private static final String NOM_FIXTER = "exemple.xml";
+	private static final String NOM_FIXTER = "exemple1.xml";
+
+	private static final String NOM_FIXTER2 = "exemple2.xml";
 
 	public static void main(String[] args) {
 		/*
@@ -30,14 +35,64 @@ public class MainExempleJAXB {
 		 */
 
 		Empleat currito = new Empleat(133, "home", 40, "Xavi", "Big Boss", "P@ssWord");
+		Empleat currito2 = new Empleat(133, "home", 41, "Chema", "Delegat", "P@ssWord");
+		Empleat currito3 = new Empleat(133, "home", 23, "Marta", "Employed", "P@ssWord");
+		
 
 		try {
-			ObjecteXML(currito);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			//ObjecteXML(currito);
+			//currito2 = XMLObjecte();
+			//System.out.println(currito2.toString());
+			
+			// ArrayList<Empleat> myStaff = new ArrayList<Empleat>();
+			Staff myStaff = new Staff();
+				myStaff.add(currito);
+				myStaff.add(currito2);
+				myStaff.add(currito3);
+
+			marsahlLlista(myStaff,  new File("lliistaEmpleat.xml"));
+	
+
+			
+			
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
 
+	}
+
+	private static void marsahlLlista(Staff myStaff, File file) {
+		
+		try {
+			JAXBContext contexte = JAXBContext.newInstance(Staff.class);
+			BufferedWriter w = null;			
+			w = new BufferedWriter(new FileWriter(file));
+
+			Marshaller m = contexte.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			
+			w.close();
+			
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	private static Empleat XMLObjecte() {
+		
+		try {
+			JAXBContext contexte = JAXBContext.newInstance(Empleat.class);
+			Unmarshaller um = contexte.createUnmarshaller();
+			Empleat currante = (Empleat) um.unmarshal(new File(NOM_FIXTER2));
+			return currante;
+			
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	private static void ObjecteXML(Empleat currante) {
@@ -48,8 +103,9 @@ public class MainExempleJAXB {
 			JAXBContext contexte = JAXBContext.newInstance(Empleat.class);			
 			Marshaller m = contexte.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			m.marshal(currante, new File(NOM_FIXTER));
 			
+			//m.marshal(currante, new File(NOM_FIXTER)); //Lo graba en un fichero
+			m.marshal(currante,System.out);
 			
 			
 		} catch (JAXBException e) {
