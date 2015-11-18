@@ -7,8 +7,12 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement (name = "Company_Staff") 
 public class Staff {
 	
-	@XmlElement(name="Pencaire",type = Empleat.class)
-	private ArrayList<Empleat> currantes = new ArrayList<Empleat>();
+	@XmlElement(name="Pencaire",type = Empleat.class) ArrayList<Empleat> currantes = new ArrayList<Empleat>();
+	
+
+	public Staff() {
+		super();
+	}
 	
 	public void add(Empleat e) {
 		currantes.add(e);
@@ -26,8 +30,5 @@ public class Staff {
 		this.currantes = currantes;
 	}
 
-	public Staff() {
-		super();
-	}
 
 }

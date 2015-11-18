@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Company_Staff>
+    <Pencaire>
+        <id>133</id>
+        <nom>Xavi</nom>
+        <carrec>Big Boss</carrec>
+        <edat>40</edat>
+        <sexe>home</sexe>
+        <password>P@ssWord</password>
+    </Pencaire>
+    <Pencaire>
+        <id>134</id>
+        <nom>Chema</nom>
+        <carrec>Delegat</carrec>
+        <edat>41</edat>
+        <sexe>home</sexe>
+        <password>P@ssWord</password>
+    </Pencaire>
+    <Pencaire>
+        <id>135</id>
+        <nom>Marta</nom>
+        <carrec>Employed</carrec>
+        <edat>23</edat>
+        <sexe>home</sexe>
+        <password>P@ssWord</password>
+    </Pencaire>
+    <Pencaire>
+        <id>136</id>
+        <nom>Karla</nom>
+        <carrec>Employed</carrec>
+        <edat>21</edat>
+        <sexe>dona</sexe>
+        <password>P@ssWord</password>
+    </Pencaire>
+</Company_Staff>

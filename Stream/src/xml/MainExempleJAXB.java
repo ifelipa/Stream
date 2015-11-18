@@ -1,9 +1,13 @@
 package xml;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 
 import javax.xml.bind.*;
@@ -35,33 +39,65 @@ public class MainExempleJAXB {
 		 */
 
 		Empleat currito = new Empleat(133, "home", 40, "Xavi", "Big Boss", "P@ssWord");
-		Empleat currito2 = new Empleat(133, "home", 41, "Chema", "Delegat", "P@ssWord");
-		Empleat currito3 = new Empleat(133, "home", 23, "Marta", "Employed", "P@ssWord");
+		Empleat currito2 = new Empleat(134, "home", 41, "Chema", "Delegat", "P@ssWord");
+		Empleat currito3 = new Empleat(135, "home", 23, "Marta", "Employed", "P@ssWord");
+		Empleat currito4 = new Empleat(136, "dona", 21, "Karla", "Employed", "P@ssWord");
 		
 
 		try {
 			//ObjecteXML(currito);
-			//currito2 = XMLObjecte();
-			//System.out.println(currito2.toString());
+			
+			//De xml a Objeto
+//			Empleat curr = XMLObjecte();
+//			System.out.println(curr.toString());
 			
 			// ArrayList<Empleat> myStaff = new ArrayList<Empleat>();
 			Staff myStaff = new Staff();
 				myStaff.add(currito);
 				myStaff.add(currito2);
 				myStaff.add(currito3);
+				myStaff.add(currito4);
 
-			marsahlLlista(myStaff,  new File("lliistaEmpleat.xml"));
-	
-
+			//marshallLlista(myStaff,  new File("lliistaEmpleat.xml"));
+			Staff myStaff2 = new Staff();
+			myStaff2=carregaXMLLlista(new File("lliistaEmpleat.xml"));
 			
-			
+			if (myStaff2 != null){
+				for (Empleat e : myStaff2.currantes) {
+					System.out.println(e);
+				}
+			}
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	private static void marsahlLlista(Staff myStaff, File file) {
+
+
+	private static Staff carregaXMLLlista(File file) {
+		
+		try {
+			JAXBContext contexte = JAXBContext.newInstance(Staff.class);
+			Unmarshaller um = contexte.createUnmarshaller();
+			BufferedReader r = null;
+			r = new BufferedReader(new FileReader(file));
+			Staff st = (Staff) um.unmarshal(r);
+			return st;
+			
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+
+
+	private static void marshallLlista(Staff myStaff, File file) {
 		
 		try {
 			JAXBContext contexte = JAXBContext.newInstance(Staff.class);
@@ -69,8 +105,8 @@ public class MainExempleJAXB {
 			w = new BufferedWriter(new FileWriter(file));
 
 			Marshaller m = contexte.createMarshaller();
-			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);	
+			m.marshal(myStaff, w);
 			w.close();
 			
 		} catch (JAXBException e) {
@@ -88,6 +124,7 @@ public class MainExempleJAXB {
 			Unmarshaller um = contexte.createUnmarshaller();
 			Empleat currante = (Empleat) um.unmarshal(new File(NOM_FIXTER2));
 			return currante;
+			
 			
 		} catch (JAXBException e) {
 			e.printStackTrace();
